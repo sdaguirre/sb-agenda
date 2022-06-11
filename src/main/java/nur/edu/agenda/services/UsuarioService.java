@@ -1,5 +1,6 @@
 package nur.edu.agenda.services;
 
+import nur.edu.agenda.models.Contacto;
 import nur.edu.agenda.models.Usuario;
 import nur.edu.agenda.repositories.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,10 @@ public class UsuarioService {
     }
     public Usuario save(Usuario usuario){
         return usuarioRepository.save(usuario);
+    }
+    public Usuario addContact(Integer id, Contacto contacto){
+        Usuario user=findById(id);
+        user.addContacto(contacto);
+        return usuarioRepository.save(user);
     }
 }

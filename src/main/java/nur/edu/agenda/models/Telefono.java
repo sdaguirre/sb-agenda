@@ -2,21 +2,21 @@ package nur.edu.agenda.models;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
+
 @Entity
 @Data
 public class Telefono {
     @Id @GeneratedValue
     private int telefono_id;
-    @Max(50)
+    @Size(max = 50)
     private String tipo;
-    @Max(50)
+    @Size(max = 50)
     private String numeroTelefono;
     @ManyToOne
+    @JoinColumn(name = "contacto_id", nullable = false)
     private Contacto contacto;
 
 }

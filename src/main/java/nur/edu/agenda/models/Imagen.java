@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 
 @Entity
 @Data
@@ -14,8 +15,9 @@ public class Imagen {
     private int imagen_id;
 
     private String fileName;
+    @Size(max = 1000)
     private String filePath;
-    @Max(10)
+    @Size(max=10)
     private String fileExtension;
     private boolean esTemporal;
 }
